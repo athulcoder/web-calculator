@@ -9,8 +9,7 @@ class Calculator{
         }
         let newVal = this.display + value;
         this.display = newVal
-        console.log(newVal)
-        console.log(this.display)
+
         return this.display;
     }
     allClear(){
