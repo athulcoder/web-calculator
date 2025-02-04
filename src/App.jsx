@@ -14,6 +14,7 @@ const App = () => {
   };
   const handleAppend = (value) => {
     let newVal = calculator.appendValue(value);
+    console.log(newVal);
     setScreen(newVal);
   };
 
