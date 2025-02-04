@@ -12,12 +12,16 @@ const App = () => {
   const handleClear = () => {
     return setScreen(calculator.allClear());
   };
+  const handleBack = () => {
+    return setScreen(calculator.backSpace(screen));
+  };
   const handleAppend = (value) => {
-    let newVal = calculator.appendValue(screen, value);
-    console.log(newVal);
+    let newVal = calculator.appendNumbers(screen, value);
     setScreen(newVal);
   };
-
+  const handleAppendOp = (value) => {
+    setScreen(calculator.appendOperator(screen, value));
+  };
   return (
     <>
       <div className=" w-full sm:w-[350px] mx-auto my-28  bg-gray-950 p-4 rounded-xl  ">
@@ -34,23 +38,23 @@ const App = () => {
         <div className="w-full grid grid-cols-4 grid-rows-5 gap-2 mt-2">
           <Operators label="AC" func={handleClear}></Operators>
           <Operators label="+/-"></Operators>
-          <Operators label="%"></Operators>
-          <Operators label="/"></Operators>
+          <Operators label="C" func={handleBack}></Operators>
+          <Operators label="/" func={handleAppendOp}></Operators>
 
           <Button label="7" func={handleAppend}></Button>
           <Button label="8" func={handleAppend}></Button>
           <Button label="9" func={handleAppend}></Button>
-          <Operators label="x"></Operators>
+          <Operators label="x" func={handleAppendOp}></Operators>
 
           <Button label="4" func={handleAppend}></Button>
           <Button label="5" func={handleAppend}></Button>
           <Button label="6" func={handleAppend}></Button>
-          <Operators label="-"></Operators>
+          <Operators label="-" func={handleAppendOp}></Operators>
 
           <Button label="1" func={handleAppend}></Button>
           <Button label="2" func={handleAppend}></Button>
           <Button label="3" func={handleAppend}></Button>
-          <Operators label="+"></Operators>
+          <Operators label="+" func={handleAppendOp}></Operators>
 
           <button
             onClick={() => handleAppend("0")}
