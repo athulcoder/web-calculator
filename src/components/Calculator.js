@@ -3,11 +3,12 @@ class Calculator{
     constructor(){
         this.display = "0"
     }
-    appendValue(value){
-        // if (this.display[0]=="0"){
-        //     this.display = this.display.slice(1);
-        // }
-        let newVal = this.display + value;
+    appendValue(currentValue,value){
+        if (currentValue[0]=="0"){
+            currentValue = currentValue.slice(1)
+        }
+        let newVal = currentValue+ value;
+        
         this.display = newVal
 
         return this.display;

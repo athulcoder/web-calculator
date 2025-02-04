@@ -13,7 +13,7 @@ const App = () => {
     return setScreen(calculator.allClear());
   };
   const handleAppend = (value) => {
-    let newVal = calculator.appendValue(value);
+    let newVal = calculator.appendValue(screen, value);
     console.log(newVal);
     setScreen(newVal);
   };
