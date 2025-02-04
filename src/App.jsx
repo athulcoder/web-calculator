@@ -5,7 +5,6 @@ import Operators from "./components/Operators";
 
 const App = () => {
   const [screen, setScreen] = useState("0");
-
   let display = document.getElementById("display");
   const calculator = new Calculator(display);
 
@@ -22,6 +21,9 @@ const App = () => {
   const handleAppendOp = (value) => {
     setScreen(calculator.appendOperator(screen, value));
   };
+  const handleEqualTo = () => {
+    setScreen(calculator.totalEqual(screen));
+  };
   return (
     <>
       <div className=" w-full sm:w-[350px] mx-auto my-28  bg-gray-950 p-4 rounded-xl  ">
@@ -31,10 +33,8 @@ const App = () => {
         >
           {screen}
         </div>
-        <div className="w-full bg-gray-950 h-8 flex justify-end items-center text-xl text-slate-400">
-          24
-        </div>
-
+        <div className="w-full bg-gray-950 h-8 flex justify-end items-center text-xl text-slate-400"></div>
+        {/* {eval(screen)} */}
         <div className="w-full grid grid-cols-4 grid-rows-5 gap-2 mt-2">
           <Operators label="AC" func={handleClear}></Operators>
           <Operators label="+/-"></Operators>
@@ -63,7 +63,7 @@ const App = () => {
             0
           </button>
           <Button label="."></Button>
-          <Operators label="="></Operators>
+          <Operators label="=" func={handleEqualTo}></Operators>
         </div>
       </div>
     </>
