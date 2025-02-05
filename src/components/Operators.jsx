@@ -4,7 +4,7 @@ const Operators = ({ label, func }) => {
       onClick={() => {
         func(label);
       }}
-      className="bg-orange-500 py-4 px-8 rounded-full flex justify-center items-center text-2xl text-slate-100"
+      className="bg-orange-500 py-6 px-10 rounded-full flex justify-center items-center text-3xl text-slate-100"
     >
       {label}
     </button>

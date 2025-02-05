@@ -23,6 +23,7 @@ const App = () => {
   };
   const handleAppendOp = (value) => {
     setScreen(calculator.appendOperator(screen, value));
+    setTotal("");
   };
   const handleEqualTo = () => {
     setScreen(calculator.totalEqual(screen));
@@ -38,21 +39,21 @@ const App = () => {
   }, [screen]);
   return (
     <>
-      <div className=" w-full sm:w-[350px] mx-auto my-28  bg-gray-950 p-4 rounded-xl  ">
+      <div className=" w-full h-lvh sm:w-3/4 lg:w-[500px] lg:h-4/5 lg:my-10 mx-auto sm:my-4  bg-gray-950 p-4 rounded-xl  flex flex-col justify-center ">
         <div
-          className="w-full bg-gray-950 h-16 flex justify-end items-center text-white text-3xl p-2"
+          className="w-full bg-gray-950 h-16 flex justify-end items-center text-white text-5xl p-3 my-6"
           id="display"
         >
           {screen}
         </div>
         <div
-          className="w-full bg-gray-950 h-8 flex justify-end items-center text-xl text-slate-400"
+          className="w-full bg-gray-950 h-8 flex justify-end items-center text-4xl text-slate-400 my-4"
           id="total"
         >
           {total}
         </div>
 
-        <div className="w-full grid grid-cols-4 grid-rows-5 gap-2 mt-2">
+        <div className="w-full grid grid-cols-4 grid-rows-5 gap-4  mt-4">
           <Operators label="AC" func={handleClear}></Operators>
           <Operators label="+/-" func={handleAppendOp}></Operators>
           <Operators label="C" func={handleBack}></Operators>
@@ -79,7 +80,7 @@ const App = () => {
           >
             0
           </button>
-          <Button label="."></Button>
+          <Button label="." func={handleAppend}></Button>
           <Operators label="=" func={handleEqualTo}></Operators>
         </div>
       </div>
