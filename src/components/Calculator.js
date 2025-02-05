@@ -15,6 +15,7 @@ class Calculator{
     }
 
     appendOperator(currentValue,operator){
+
         let l = currentValue.length
         let lastChar = currentValue.slice(l-1)
         if (currentValue=="0" ){
@@ -47,11 +48,17 @@ class Calculator{
 
     }
     totalEqual(currentValue){
-        currentValue = currentValue.replaceAll("x","*",)
-        let total = eval(currentValue)
-        this.display = total
-        return this.display
-    }
+        try{
+            currentValue = currentValue.replaceAll("x","*",)
+            let total = eval(currentValue)
+            this.display = total
+            return this.display
+        }
+        catch{
+            return currentValue.replaceAll("*","x")
+        }
+        }
+       
    
 
     }
