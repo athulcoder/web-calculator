@@ -15,7 +15,7 @@ class Calculator{
     }
 
     appendOperator(currentValue,operator){
-
+        currentValue = currentValue.toString()
         let l = currentValue.length
         let lastChar = currentValue.slice(l-1)
         if (currentValue=="0" ){
@@ -28,6 +28,7 @@ class Calculator{
         }
       
         else{
+            alert("e")
             this.display = currentValue;
         }
         return this.display
